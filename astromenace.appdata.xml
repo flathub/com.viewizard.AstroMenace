@@ -20,6 +20,20 @@
       <li>Flexible difficulty control</li>
     </ul>
   </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://www.viewizard.com/astromenace/am6.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://www.viewizard.com/astromenace/am3.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://www.viewizard.com/astromenace/am7.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://www.viewizard.com/astromenace/am10.jpg</image>
+    </screenshot>
+</screenshots>
   <url type="homepage">http://viewizard.com</url>
   <content_rating type="oars-1.0">
     <content_attribute id="violence-cartoon">none</content_attribute>
