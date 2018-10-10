@@ -33,7 +33,7 @@
     <screenshot>
       <image>https://www.viewizard.com/astromenace/am10.jpg</image>
     </screenshot>
-</screenshots>
+  </screenshots>
   <url type="homepage">http://viewizard.com</url>
   <content_rating type="oars-1.0">
     <content_attribute id="violence-cartoon">none</content_attribute>
