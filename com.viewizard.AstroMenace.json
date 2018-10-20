@@ -4,7 +4,6 @@
   "runtime-version": "18.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "astromenace",
-  "rename-appdata-file": "astromenace.appdata.xml",
   "rename-desktop-file": "astromenace.desktop",
   "rename-icon": "astromenace",
   "finish-args": [
@@ -15,7 +14,6 @@
   ],
   "modules": [
     "shared-modules/glu/glu-9.0.0.json",
-    "shared-modules/SDL/SDL-1.2.15.json",
     {
       "name": "freealut",
       "sources": [
@@ -33,34 +31,29 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://sourceforge.net/projects/openastromenace/files/1.3.2/astromenace-src-1.3.2.tar.bz2",
-          "sha256": "9b775df2b157565b97aca008dd879b867cd3377c07b829cee6b5342639357fe6"
+          "url": "https://github.com/viewizard/astromenace/archive/v1.4.0.tar.gz",
+          "sha256": "6ebbb14d7b2e066a4f35b104185562560614e125498a63631402fbc77d899f35"
+        },
+        {
+          "type": "file",
+          "path": "com.viewizard.AstroMenace.appdata.xml"
         },
         {
           "type": "script",
-          "commands": [ "exec /app/share/astromenace/AstroMenace --dir=/app/share/astromenace \"$@\"" ],
+          "commands": [ "exec /app/share/astromenace/astromenace --dir=/app/share/astromenace \"$@\"" ],
           "dest-filename": "astromenace-launcher"
-        },
-        {
-          "type": "file",
-          "path": "astromenace.desktop"
-        },
-        {
-          "type": "file",
-          "path": "astromenace.appdata.xml"
         }
       ],
-      "buildsystem": "cmake",
-      "build-commands": [ "./AstroMenace --pack --rawdata=./RAW_VFS_DATA" ],
+      "buildsystem": "cmake-ninja",
       "no-make-install": true,
       "post-install": [
         "install -Dm0644 -t /app/share/astromenace gamedata.vfs",
-        "install -Dm0755 -t /app/share/astromenace AstroMenace",
+        "install -Dm0755 -t /app/share/astromenace astromenace",
         "install -Dm0755 astromenace-launcher /app/bin/astromenace",
-        "install -Dm0644 astromenace_64.png /app/share/icons/hicolor/64x64/apps/astromenace.png",
-        "install -Dm0644 astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png",
-        "install -Dm0644 -t /app/share/appdata astromenace.appdata.xml",
-        "install -Dm0644 -t /app/share/applications astromenace.desktop"
+        "install -Dm0644 share/astromenace_64.png /app/share/icons/hicolor/64x64/apps/astromenace.png",
+        "install -Dm0644 share/astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png",
+        "install -Dm0644 -t /app/share/applications share/astromenace.desktop",
+        "install -Dm0644 -t /app/share/appdata com.viewizard.AstroMenace.appdata.xml"
       ]
     }
   ]
