@@ -35,6 +35,8 @@ modules:
     commands:
     - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
     dest-filename: astromenace-launcher
+  - type: patch
+    path: astromenace-32bit.patch
   buildsystem: cmake-ninja
   no-make-install: true
   post-install:
