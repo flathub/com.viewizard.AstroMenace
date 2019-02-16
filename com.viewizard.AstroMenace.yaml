@@ -10,7 +10,7 @@ finish-args:
 - --share=ipc
 - --socket=wayland
 - --socket=pulseaudio
-- --device=dri
+- --device=all # joystick support
 modules:
 - shared-modules/glu/glu-9.0.0.json
 - name: freealut
