@@ -29,16 +29,14 @@ modules:
   - name: astromenace
     sources:
       - type: archive
-        url: https://github.com/viewizard/astromenace/archive/v1.4.0.tar.gz
-        sha256: 6ebbb14d7b2e066a4f35b104185562560614e125498a63631402fbc77d899f35
+        url: https://github.com/viewizard/astromenace/archive/v1.4.1.tar.gz
+        sha256: 0aca5211c9f333acf698807f597e5ad8e9d1455ba8ad202940890bff5b6c9507
       - type: file
         path: com.viewizard.AstroMenace.appdata.xml
       - type: script
         commands:
           - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
         dest-filename: astromenace-launcher
-      - type: patch
-        path: astromenace-32bit.patch
     buildsystem: cmake-ninja
     no-make-install: true
     post-install:

@@ -23,19 +23,27 @@
   <launchable type="desktop-id">com.viewizard.AstroMenace.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.0/share/preview_wide1.png</image>
+      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.1/share/preview_wide1.png</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.0/share/preview_wide2.png</image>
+      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.1/share/preview_wide2.png</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.0/share/preview_wide3.png</image>
+      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/v1.4.1/share/preview_wide3.png</image>
     </screenshot>
   </screenshots>
   <url type="homepage">https://viewizard.com</url>
   <url type="bugtracker">https://github.com/viewizard/astromenace/issues</url>
   <developer_name>Viewizard</developer_name>
   <releases>
+    <release version="1.4.1" date="2019-04-27">
+​      <ul>
+        <li>Revised shaders and all related code (should work fine with all open source linux video drivers now).</li>
+        <li>Fixed compilation warnings.</li>
+        <li>Updated CMakeLists.txt.</li>
+        <li>Minor code improvements.</li>
+      </ul>
+    </release>
     <release version="1.4.0" date="2018-10-20">
 ​      <ul>
         <li>Code refactored in order to use C++11 and STL (work still in progress).</li>
