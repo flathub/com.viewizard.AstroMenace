@@ -40,24 +40,28 @@
   <developer_name>Viewizard</developer_name>
   <releases>
     <release version="1.4.1" date="2019-04-27">
-​      <ul>
-        <li>Revised shaders and all related code (should work fine with all open source linux video drivers now).</li>
-        <li>Fixed compilation warnings.</li>
-        <li>Updated CMakeLists.txt.</li>
-        <li>Minor code improvements.</li>
-      </ul>
+      <description>
+​        <ul>
+          <li>Revised shaders and all related code (should work fine with all open source linux video drivers now).</li>
+          <li>Fixed compilation warnings.</li>
+          <li>Updated CMakeLists.txt.</li>
+          <li>Minor code improvements.</li>
+        </ul>
+      </description>
     </release>
     <release version="1.4.0" date="2018-10-20">
-​      <ul>
-        <li>Code refactored in order to use C++11 and STL (work still in progress).</li>
-        <li>Migrated from libSDL 1.2 to libSDL 2.</li>
-        <li>Added language detection on first start.</li>
-        <li>Renamed command line parameter "safe-mode" to "reset-config".</li>
-        <li>Fixed particle system's code for low FPS. All effects will looks now as they should.</li>
-        <li>Fixed old bug with turret's barrel rotation position during explosion.</li>
-        <li>Added Polish language translation, thanks to Jacek Fiedorowicz.</li>
-        <li>About 1300 minor fixes and changes since last release.</li>
-      </ul>
+      <description>
+​        <ul>
+          <li>Code refactored in order to use C++11 and STL (work still in progress).</li>
+          <li>Migrated from libSDL 1.2 to libSDL 2.</li>
+          <li>Added language detection on first start.</li>
+          <li>Renamed command line parameter "safe-mode" to "reset-config".</li>
+          <li>Fixed particle system's code for low FPS. All effects will looks now as they should.</li>
+          <li>Fixed old bug with turret's barrel rotation position during explosion.</li>
+          <li>Added Polish language translation, thanks to Jacek Fiedorowicz.</li>
+          <li>About 1300 minor fixes and changes since last release.</li>
+        </ul>
+      </description>
     </release>
   </releases>
   <content_rating type="oars-1.1">
