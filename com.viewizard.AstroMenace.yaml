@@ -38,6 +38,8 @@ modules:
           - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
         dest-filename: astromenace-launcher
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     no-make-install: true
     post-install:
       - install -Dm0644 -t /app/share/astromenace gamedata.vfs
