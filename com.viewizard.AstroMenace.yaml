@@ -1,6 +1,6 @@
 app-id: com.viewizard.AstroMenace
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: astromenace
 rename-desktop-file: astromenace.desktop
@@ -12,7 +12,7 @@ finish-args:
   - --socket=pulseaudio
   - --device=all # joystick support
 modules:
-  - shared-modules/glu/glu-9.0.0.json
+  - shared-modules/glu/glu-9.json
 
   - name: freealut
     sources:
