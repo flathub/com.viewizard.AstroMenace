@@ -11,6 +11,14 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --device=all # joystick support
+cleanup:
+  - '*.a'
+  - '*.la'
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - /share/doc
+  - /share/man
 modules:
   - shared-modules/glu/glu-9.json
 
@@ -20,11 +28,6 @@ modules:
         url: http://pkgs.fedoraproject.org/repo/pkgs/freealut/freealut-1.1.0.tar.gz/e089b28a0267faabdb6c079ee173664a/freealut-1.1.0.tar.gz
         sha256: 60d1ea8779471bb851b89b49ce44eecb78e46265be1a6e9320a28b100c8df44f
     rm-configure: true
-    cleanup:
-      - /include
-      - /lib/*.a
-      - /lib/*.la
-      - /lib/pkgconfig
 
   - name: astromenace
     sources:
