@@ -32,8 +32,13 @@ modules:
   - name: astromenace
     sources:
       - type: archive
-        url: https://github.com/viewizard/astromenace/archive/v1.4.1.tar.gz
+        url: https://github.com/viewizard/astromenace/archive/refs/tags/v1.4.1.tar.gz
         sha256: 0aca5211c9f333acf698807f597e5ad8e9d1455ba8ad202940890bff5b6c9507
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/viewizard/astromenace/releases/latest
+          version-query: '.tag_name'
+          url-query: '"https://github.com/viewizard/astromenace/archive/refs/tags/" + $version + ".tar.gz"'
       - type: file
         path: com.viewizard.AstroMenace.metainfo.xml
       - type: script
