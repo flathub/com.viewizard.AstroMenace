@@ -31,16 +31,16 @@ modules:
 
   - name: astromenace
     sources:
-      - type: archive
-        url: https://github.com/viewizard/astromenace/archive/refs/tags/v1.4.1.tar.gz
-        sha256: 0aca5211c9f333acf698807f597e5ad8e9d1455ba8ad202940890bff5b6c9507
+      - type: git
+        url: https://github.com/viewizard/astromenace.git
+        tag: v1.4.1
+        commit: 596e2d3cb79bd89004c7f645d0d485382f8f07fa
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/viewizard/astromenace/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/viewizard/astromenace/archive/refs/tags/" + $version + ".tar.gz"'
+          url: https://api.github.com/repos/viewizard/astromenace/releases
+          tag-query: '[.[] | select(.draft == false and .prerelease == false)][0].tag_name'
       - type: file
-        path: com.viewizard.AstroMenace.metainfo.xml
+        path: com.viewizard.AstroMenace.metainfo.xml.in
       - type: script
         commands:
           - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
@@ -56,4 +56,10 @@ modules:
       - install -Dm0644 share/astromenace_64.png /app/share/icons/hicolor/64x64/apps/astromenace.png
       - install -Dm0644 share/astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png
       - install -Dm0644 -t /app/share/applications share/astromenace.desktop
-      - install -Dm0644 -t /app/share/metainfo com.viewizard.AstroMenace.metainfo.xml
+      - |
+        # Set version and release data in our custom Metainfo and install it
+        set -e
+        version="$(git describe --tags --exact-match)"
+        date="$(git log -1 --date=short --format=%cd)"
+        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" com.viewizard.AstroMenace.metainfo.xml.in >com.viewizard.AstroMenace.metainfo.xml
+        install -Dm0644 -t /app/share/metainfo com.viewizard.AstroMenace.metainfo.xml
