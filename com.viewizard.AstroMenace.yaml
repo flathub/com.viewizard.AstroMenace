@@ -33,12 +33,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/viewizard/astromenace.git
-        tag: 1.4.2-1781
-        commit: e1ea331124507031d1af913d27a4585ed753a43b
+        tag: v1.4.2
+        commit: 179a9fa05a0f5d7241de5d6f6d6bbd82692f2f17
         x-checker-data:
           type: json
           url: https://api.github.com/repos/viewizard/astromenace/releases
-          tag-query: '[.[] | select(.draft == false and .prerelease == true)][0].tag_name'
+          tag-query: '[.[] | select(.draft == false)][0].tag_name'
       - type: file
         path: com.viewizard.AstroMenace.metainfo.xml.in
       - type: script
