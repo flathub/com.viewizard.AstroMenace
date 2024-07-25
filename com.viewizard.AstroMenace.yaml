@@ -10,7 +10,8 @@ finish-args:
   - --share=ipc
   - --socket=wayland
   - --socket=pulseaudio
-  - --device=all # joystick support
+  - --device=dri
+  - --device=input
 cleanup:
   - '*.a'
   - '*.la'
