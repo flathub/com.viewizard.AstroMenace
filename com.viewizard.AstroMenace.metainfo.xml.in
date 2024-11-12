@@ -26,13 +26,13 @@
   <launchable type="desktop-id">com.viewizard.AstroMenace.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide1.png</image>
+      <image type="source">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide1.png</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide2.png</image>
+      <image type="source">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide2.png</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="1366" height="768">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide3.png</image>
+      <image type="source">https://raw.githubusercontent.com/viewizard/astromenace/{RELEASE_VERSION}/share/preview_wide3.png</image>
     </screenshot>
   </screenshots>
   <url type="homepage">https://viewizard.com</url>
