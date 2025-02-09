@@ -4,6 +4,7 @@ runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: astromenace
 rename-desktop-file: astromenace.desktop
+rename-appdata-file: astromenace.appdata.xml
 rename-icon: astromenace
 finish-args:
   - --socket=fallback-x11
@@ -39,8 +40,8 @@ modules:
           type: json
           url: https://api.github.com/repos/viewizard/astromenace/releases
           tag-query: '[.[] | select(.draft == false)][0].tag_name'
-      - type: file
-        path: com.viewizard.AstroMenace.metainfo.xml.in
+      - type: patch
+        path: appdata-release-placeholder.patch
       - type: script
         commands:
           - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
@@ -57,9 +58,9 @@ modules:
       - install -Dm0644 share/astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png
       - install -Dm0644 -t /app/share/applications share/astromenace.desktop
       - |
-        # Set version and release data in our custom Metainfo and install it
+        # Set version and release date in appdata
         set -e
         version="$(git describe --tags --exact-match)"
         date="$(git log -1 --date=short --format=%cd)"
-        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" com.viewizard.AstroMenace.metainfo.xml.in >com.viewizard.AstroMenace.metainfo.xml
-        install -Dm0644 -t /app/share/metainfo com.viewizard.AstroMenace.metainfo.xml
+        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" -i share/astromenace.appdata.xml
+      - install -Dm0644 -t /app/share/appdata share/astromenace.appdata.xml
