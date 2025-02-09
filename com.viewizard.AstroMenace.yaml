@@ -40,13 +40,6 @@ modules:
           url: https://api.github.com/repos/viewizard/astromenace/releases
           tag-query: '[.[] | select(.draft == false and .prerelease == false)][0].tag_name'
       - type: file
-        url: https://github.com/viewizard/astromenace/commit/d5e007cf356fc5ecc9c28cf796c55bd4765bc9e2.diff
-        sha256: 092cfaf5ef3334c88a4c4830d19cf88d45fce72f6646b4e7dba56d77f8b9cb22
-        dest-filename: fix-build-with-gcc-13.patch
-      - type: shell
-        commands:
-          - patch -p1 <fix-build-with-gcc-13.patch
-      - type: file
         path: com.viewizard.AstroMenace.metainfo.xml.in
       - type: script
         commands:
