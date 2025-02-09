@@ -1,0 +1,13 @@
+diff '--color=auto' -ruN a/share/astromenace.appdata.xml b/share/astromenace.appdata.xml
+--- a/share/astromenace.appdata.xml	2025-02-09 16:01:08.191554750 +0100
++++ b/share/astromenace.appdata.xml	2025-02-09 16:03:07.613883987 +0100
+@@ -61,6 +61,9 @@
+   <url type="contribute">https://github.com/viewizard/astromenace/blob/master/docs/CONTRIBUTING.md</url>
+   <developer_name>Viewizard</developer_name>
+   <update_contact>viewizard_AT_viewizard.com</update_contact>
++  <releases>
++    <release version="{RELEASE_VERSION}" date="{RELEASE_DATE}"/>
++  </releases>
+   <content_rating type="oars-1.1">
+     <content_attribute id="violence-fantasy">moderate</content_attribute>
+   </content_rating>
