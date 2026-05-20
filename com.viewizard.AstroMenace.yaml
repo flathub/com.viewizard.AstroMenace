@@ -1,6 +1,6 @@
 app-id: com.viewizard.AstroMenace
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: astromenace
 rename-desktop-file: astromenace.desktop
@@ -13,24 +13,34 @@ finish-args:
   - --socket=pulseaudio
   - --device=all # joystick support
 cleanup:
-  - '*.a'
-  - '*.la'
   - /include
-  - /lib/cmake
   - /lib/pkgconfig
-  - /share/doc
-  - /share/man
+  - '*.la'
+  - '*.a'
 modules:
   - shared-modules/glu/glu-9.json
 
   - name: freealut
+    rm-configure: true
     sources:
       - type: archive
         url: http://pkgs.fedoraproject.org/repo/pkgs/freealut/freealut-1.1.0.tar.gz/e089b28a0267faabdb6c079ee173664a/freealut-1.1.0.tar.gz
         sha256: 60d1ea8779471bb851b89b49ce44eecb78e46265be1a6e9320a28b100c8df44f
-    rm-configure: true
 
   - name: astromenace
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    no-make-install: true
+    post-install:
+      - install -Dm0644 gamedata.vfs -t /app/share/astromenace
+      - install -Dm0755 astromenace -t /app/share/astromenace
+      - install -Dm0755 astromenace-launcher /app/bin/astromenace
+      - install -Dm0644 share/astromenace_64.png /app/share/icons/hicolor/64x64/apps/astromenace.png
+      - install -Dm0644 share/astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png
+      - install -Dm0644 share/astromenace.desktop -t /app/share/applications/
+      - install -Dm0644 share/astromenace.appdata.xml -t /app/share/metainfo/
     sources:
       - type: git
         url: https://github.com/viewizard/astromenace.git
@@ -46,21 +56,3 @@ modules:
         commands:
           - exec /app/share/astromenace/astromenace --dir=/app/share/astromenace "$@"
         dest-filename: astromenace-launcher
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    no-make-install: true
-    post-install:
-      - install -Dm0644 -t /app/share/astromenace gamedata.vfs
-      - install -Dm0755 -t /app/share/astromenace astromenace
-      - install -Dm0755 astromenace-launcher /app/bin/astromenace
-      - install -Dm0644 share/astromenace_64.png /app/share/icons/hicolor/64x64/apps/astromenace.png
-      - install -Dm0644 share/astromenace_128.png /app/share/icons/hicolor/128x128/apps/astromenace.png
-      - install -Dm0644 -t /app/share/applications share/astromenace.desktop
-      - |
-        # Set version and release date in appdata
-        set -e
-        version="$(git describe --tags --exact-match)"
-        date="$(git log -1 --date=short --format=%cd)"
-        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" -i share/astromenace.appdata.xml
-      - install -Dm0644 -t /app/share/appdata share/astromenace.appdata.xml
